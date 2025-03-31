@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Desk</title>
+    <link rel="stylesheet" href="/styles/front-desk.css">
+
+</head>
+<body>
+    <header class="header">
+        <div class="raceMode">
+            <h2 id="currentMode" class="modeSafe">Safe</h2>
+        </div>
+        <div class="timer">
+            <div id="countdownTimer" style="color: white;;">00:00:00</div>
+            <div id="raceTimer" style="color: white; display: none">00:00:00</div>
+        </div>
+        <nav class="nav">
+            <a href="index.html">Home</a> <!-- THe hub of this project -->
+        </nav>
+    </header>
+
+    <main class="main">
+        <div class = "left-section">
+        <div class="block" id="block">
+            <form class="driverForm" id="driverForm">
+                <label for="driverSelect">Choose a car:</label>
+            <select id="driverSelect"></select>
+            <p id="selectedDriver">Selected Car: None</p> <!-- This is the default value when no option is chosen-->
+            <label for="driverForm">Enter driver's name:</label>
+            <input type="text" id="driverInput" name="driver" value="" placeholder="Enter driver's name">
+            <input type="button" id="confirmDriverButton" class="confirm" value="✓">
+            <input type="button" id="resetDriverButton" class="reset" value="❌">
+            </form>
+        </div>
+        </div>
+        <div class ="center-section">
+            <table class="roster-table">
+                <thead>
+                    <th>Current Race Roster</th>
+                </thead>
+                <br>
+                <br>
+                <tbody>
+                    <tr id="nameList">
+                        <!-- insert current roster rows here -->
+                    </tr>
+                </tbody>
+
+            </table>
+            <button id="resetCurrentButton">Remove all entrants</button>
+        </div>
+        <div class="right-section">
+            <table class="roster-table">
+                <thead>
+                        <th>RACE SESSIONS</th>
+                </thead>
+                <tbody>
+                    <tr id="raceList"></tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <div class="controls">
+        <button id="submitButton">Submit all participants</button>
+    </div>
+    <footer class="footer"> 
+        <p>&copy; Beachside Racetrack</p>
+    </footer>
+    
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    
+    <script type="module" src="/scripts/front-desk.js" defer></script>
+    <script type="module" src="/scripts/timer.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+body {
+    min-height: 100vh;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
+}
+.driver-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+}
+
+.driver-card p {
+    font-size: 1.2rem;
+    margin: 2px 0;
+}
+
+.lapButtons button {
+    font-size: 1.5rem;
+    transition: width 0.3s ease, height 0.3s ease, font-size 0.3s ease;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.lapButtons button.small {
+    width: 10vw;
+    height: 5vh;
+    font-size: 1.2rem;
+}
+
+.lapButtons button.big {
+    width: 20vw;
+    height: 10vh;
+    font-size: 3rem;
+}
+
+@media (max-width: 600px) {
+    .lapButtons button.small {
+        font-size: 1rem;
+    }
+
+    .lapButtons button.big {
+        font-size: 1.6rem;
+    }
+}
+
+
+.lapButtons button:disabled { 
+    background-color: #cccccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}

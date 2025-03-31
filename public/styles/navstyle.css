@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    min-height: 100vh; /* Ensures full viewport height is used */
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#currentRaceMode {
+    font-size: medium;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.header {
+    display: flex;
+    background-color: #FF4500;
+    color: white;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    border-bottom: 3px solid black;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+ .timer {
+     font-family: monospace;
+     font-size: 2em;
+     font-weight: bold;
+     color: white;
+     padding: 10px;
+     background-color: rgba(0, 0, 0, 0.5);
+     border-radius: 5px;
+     white-space: nowrap;
+     margin: 0 auto;
+ }
+
+ video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.hidden-video {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.active-video {
+    opacity: 1;
+}
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #000000;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Prevents extra scrollbars */
+}
+
+.content {
+    position: relative; /* Ensures content is above video */
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.5); /* Optional: Adds a slight dark overlay for readability */
+    padding: 20px;
+    border-radius: 10px;
+}
+  footer {
+    flex: 0;
+    background-color: #FF4500;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    height: auto; /* Ensures it adapts to content */
+    position: fixed;
+    bottom: 0;
+    width: 100%; /* Stretches across the page */
+    border-top: 3px solid black;
+  }
+
+main h2 { /* This is how to access main's h2 elements */
+      background-color: grey;
+      color: #000000;
+      min-width: fit-content;
+      text-align: center;
+      padding: 10px 20px;
+  }
+
+.nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 140px);
+    justify-content: center;
+}
+
+/* Left-side panel */
+.nav-left {
+    position: absolute;
+    left: -400px; /* Position on the left side of the screen */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    top: 30%;
+}
+
+/* Right-side panel */
+.nav-right {
+    position: absolute;
+    right: -400px; /* Position on the right side of the screen */
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    top: 31%;
+}
+
+/* Initially hide the links */
+.nav-left a {
+    display: block;
+    width: 220px;
+    padding: 30px;
+    background: #ddbc00;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 3px solid black;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    opacity: 1;
+    position: relative;
+    transform: translateX(-400%); /* Start off-screen to the left */
+}
+
+.nav-left a:hover {
+    background: #c0a000; /* Darker shade for hover effect */
+    color: black;
+}
+
+.nav-right a {
+    display: block;
+    width: 220px; /* Adjust width */
+    padding: 15px;
+    background: #d39613;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 3px solid black;
+    transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    opacity: 1;
+    position: relative;
+    transform: translateX(700%); /* Start off-screen to the right */
+}
+.nav-right a:hover {
+    background: #c0a000; /* Darker shade for hover effect */
+    color: black;
+    
+}
+
+/* Animate towards the center */
+.nav-left a.show {
+    transform: translateX(0%); /* Move to the original position (left side) */
+    opacity: 1;
+}
+
+.nav-right a.show {
+    transform: translateX(0%); /* Move to the original position (right side) */
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+    /* Adjust Header */
+    header {
+        font-size: 14px;
+    }
+
+    /* Adjust Footer */
+    footer {
+        font-size: 12px;
+    }
+
+    /* Bring Navigation Closer */
+    .nav-left {
+        left: -185px; /* Move closer to center */
+        top: 20%;
+        gap: 55px;
+    }
+
+    .nav-right {
+        right: -185px; /* Move closer to center */
+        top: 20%;
+    }
+
+    /* Make Buttons Smaller */
+    .nav-left a, .nav-right a {
+        max-width: 160px; /* Reduce width */
+        padding: 15px;
+        font-size: 16px; /* Smaller text */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Adjust Header */
+    header {
+        font-size: 14px;
+    }
+
+    /* Adjust Footer */
+    footer {
+        font-size: 12px;
+    }
+
+    /* Keep Navigation Stacked */
+    .nav-left, .nav-right {
+        position: static;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .nav-left a, .nav-right a {
+        width: 100%;
+        max-width: 220px;
+    }
+}

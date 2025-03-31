@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+canvas {
+    background: #fa7c4e;
+    position: absolute;
+    filter: contrast(1);
+}
+#fullScreen {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 1000; /* Ensures it's always on top */
+}
+
+#fullScreen:hover {
+    background-color: #218838;
+}

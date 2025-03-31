@@ -1,0 +1,73 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FF4500;;
+    margin: 0;
+    font-size: 35px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Driver List Container */
+#driverList {
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #075b63;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Message Container */
+#message {
+    font-size: 45px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 15px;
+}
+
+/* Driver List Styles */
+#driverList ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#driverList li {
+    background: #c0a000;
+    color: black;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.3s ease-in-out;
+}
+
+#driverList li:hover {
+    background: #0056b3;
+    color: white;
+    transform: scale(1.05);
+}
+
+#fullScreen {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 1000; /* Ensures it's always on top */
+}
+
+#fullScreen:hover {
+    background-color: #218838;
+}

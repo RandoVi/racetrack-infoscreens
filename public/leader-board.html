@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="styles/leader-board.css">
+    <style>
+        #flagDisplay {
+            width: 10vw; /*These scale with screen size*/
+            height: 5vw;
+            border: 2px solid black;
+            margin: 1vw;
+        }
+
+        #flagDisplay.finish {
+    background-image: url("/checkered_flag.jpeg");
+    background-size: 10vw 5vw; /* Adjust size as needed */
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="timer">
+            <div id="countdownTimer" style="color: white;;">00:00:00</div>
+            <div id="raceTimer" style="color: white; display: none">00:00:00</div>
+        </div>
+        <div id="flagDisplay"></div>
+    </header>
+    <main>
+        <button id="fullScreen">FULLSCREEN</button>
+
+        <section class="leader-board">
+            <div id="board-container"></div>
+        </section>
+    </main>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    
+    <script type="module" src="/scripts/leader-board.js" defer></script>
+    <script type="module" src="/scripts/timer.js" defer></script>
+</body>
+</html>

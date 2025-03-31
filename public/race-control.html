@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Race-Control</title>
+    <link rel="stylesheet" href="/styles/style.css"> 
+    <link rel="stylesheet" href="/styles/race-control.css"> 
+</head>
+<body>
+    <header class = "header">
+        <div class="raceMode">
+            <h2 id="currentMode" class="modeSafe">Safe</h2>
+        </div>
+        <div class="timer">
+            <div id="countdownTimer" style="color: white;;">00:00:00</div>
+            <div id="raceTimer" style="color: white; display: none">00:00:00</div>
+        </div>
+        
+        <nav class="nav">
+            <a href="index.html">Home</a> <!-- THe hub of this project -->
+        </nav>
+    </header>
+
+    <main class = "main">
+        <h3>SESSION CONTROLS</h3>
+        <div class="controlButtons">
+            <button id="btnNewSession">NEW SESSION</button>
+            <button id="btnStartRace">START RACE</button>
+            <button id="btnEndSession">END SESSION</button>
+        </div>
+        <section class="race-controls">
+            <h3>FLAG CONTROLS</h3>
+            <div class="flag-container">
+                <div class="flagButtons">
+                    <button id="safe">SAFE</button>
+                    <button id="hazard">HAZARD</button>
+                    <button id="danger">DANGER</button>
+                    <button id="finish">FINISH</button>
+                </div>
+                <canvas id="canvasS"></canvas>
+            </div>
+        </section>
+        <section class="current-race">
+            <h1 id="containerHeader">No race in progress</h1>
+            <div id="session-container">
+            </div>
+        </section>
+        <section class="next-race">
+            <h1>Upcoming sessions available: </h1>
+            <div id="upcoming-session-container">0
+            </div>
+        </section>
+    
+    </main>
+
+    <footer class="footer">
+        <p>&copy; Beachside Racetrack</p>
+    </footer>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+    <script type="module" src="/scripts/race-control.js" defer></script>
+    <script type="module" src="/scripts/timer.js" defer></script>
+</body>
+</html>

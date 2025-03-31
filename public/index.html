@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/styles/navstyle.css">
+    <link rel="stylesheet" href="/styles/login.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="raceMode">
+            <h2 id="currentMode" class="modeSafe">Safe</h2>
+        </div>
+        <div class="timer">
+            <div id="countdownTimer" style="color: white;;">00:00:00</div>
+            <div id="raceTimer" style="color: white; display: none">00:00:00</div>
+        </div>
+    </header>
+
+    <main>
+        <video autoplay muted playsinline id="video1" class="active-video">
+            <source src="videos/racetrackvid1.mp4" type="video/mp4">
+        </video>
+        <video muted playsinline id="video2" class="hidden-video">
+            <source src="videos/racetrackvid2.mp4" type="video/mp4">
+        </video>
+        <nav class="nav">
+            <div class="nav-left">
+                <a href="#">Receptionist</a>
+                <a href="#">Lap-Line Observer</a>
+                <a href="#">Safety Official</a>
+            </div>
+            <div class="nav-right">
+                <a href="leader-board.html">Leader-Board</a>
+                <a href="next-race.html">Next Race</a>
+                <a href="race-countdown.html">Race Countdown</a>
+                <a href="race-flags.html">Race Flag</a>
+            </div>
+        </nav>
+    </main>
+
+    <footer class="footer">
+        <p>Beachside Racetrack &copy; 2025</p>
+    </footer>
+
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    
+    <script type="module" src="/scripts/timer.js" defer></script>
+    <script type="module" src="/scripts/login.js" defer></script>
+    <script type="module" src="/scripts/index.js" defer></script>
+</body>
+</html>

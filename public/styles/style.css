@@ -1,0 +1,149 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f4f4f4;
+    color: rgb(245, 202, 146);
+}
+
+.header {
+    display: flex;
+    background-color: #FF4500;
+    color: white;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    border-bottom: 3px solid black;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+.timer {
+    font-family: monospace;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    white-space: nowrap;
+    margin: 0 auto;
+}
+
+a {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.main {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #075b63;
+    padding-top: 60px;
+    text-align: center;
+    min-height: calc(100vh - 120px);
+}
+
+footer {
+    background-color: #FF4500;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    width: 100%;
+    border-top: 3px solid black;
+}
+
+/* Mobile Portrait */
+@media (max-width: 576px) and (orientation: portrait) {
+    button {
+        font-size: 14px;
+        padding: 6px;
+    }
+}
+
+/* Mobile Landscape */
+@media (max-width: 800px) and (orientation: landscape) {
+    button {
+        font-size: 12px;
+        padding: 4px;
+        margin: 3px;
+    }
+
+    .main {
+        min-height: calc(100vh - 80px);
+    }
+}
+
+/*Tablet Portrait*/
+@media (min-width: 577px) and (max-width: 992px) and (orientation: portrait) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left-section,
+    .center-section,
+    .right-section {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+/*Tablet Landscape*/
+@media (min-width: 577px) and (max-width: 992px) and (orientation: landscape) {
+    button {
+        font-size: 15px;
+        padding: 7px;
+        margin: 4px;
+    }
+
+    .main {
+        min-height: calc(100vh - 100px);
+    }
+}
+
+button {
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    margin: 5px;
+    z-index: 100;
+    font-size: 16px;
+    background-color: #ddbc00;
+    color: white;
+    border: 3px solid black;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+button:hover {
+    background-color: #c0a000;
+    color: black;
+}
+
+button.disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    pointer-events: none;
+}

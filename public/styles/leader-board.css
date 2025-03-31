@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-size: 16px;
+    /* Base font size for tablets */
+}
+
+body {
+    display: grid;
+    grid-template-rows: min-content max-content;
+    justify-content: center;
+    align-items: start;
+    margin-top: 20px;
+    height: 100vh;
+    margin: 0;
+    background-color: #FF4500;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    /* Prevent body scrollbars */
+}
+
+.header {
+    display: flex;
+    width: fit-content;
+    justify-self: center;
+}
+
+.lap-controls {
+    margin-top: 30px;
+}
+
+.timer {
+    font-family: monospace;
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    white-space: nowrap;
+    margin: 10px 10px;
+    justify-self: center;
+    justify-items: center;
+}
+
+
+#board-container {
+    width: 90%;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 10px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    font-size: 40px;
+    color: white
+}
+
+#board-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari/Others */
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #22bbbb;
+    color: black;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 1.2em;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 10px;
+    font-size: 1.2rem;
+    border: 4px solid black;
+}
+
+.leaderboard-table th {
+    background-color: #FF4500;
+    border: 5px solid black;
+    font-size: 1.5rem
+}
+
+.leaderboard-table tr:nth-child(even) {
+    background-color: #149e9e;
+}
+
+/* Set column widths */
+.leaderboard-table th:nth-child(1),
+.leaderboard-table td:nth-child(1) {
+    width: 12%;
+}
+
+.leaderboard-table th:nth-child(2),
+.leaderboard-table td:nth-child(2) {
+    width: 20%;
+}
+
+.leaderboard-table th:nth-child(3),
+.leaderboard-table td:nth-child(3) {
+    width: 12%;
+}
+
+.leaderboard-table th:nth-child(4),
+.leaderboard-table td:nth-child(4) {
+    width: 20%;
+}
+
+leaderboard-table th:nth-child(5),
+.leaderboard-table td:nth-child(5) {
+    width: 18%;
+}
+
+leaderboard-table th:nth-child(6),
+.leaderboard-table td:nth-child(6) {
+    width: 18%;
+}
+
+@media (max-width: 768px) {
+
+    .leaderboard-table th,
+    .leaderboard-table td {
+        padding: 8px;
+        font-size: 1.2rem;
+    }
+
+    .leaderboard-table th {
+        font-size: 1.4rem;
+    }
+
+    .timer {
+        font-size: 3em;
+    }
+}
+
+.lapButtons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.lapButtons button {
+    background-color: #c0a000;
+    color: white;
+    padding: 15px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    flex-basis: calc(25% - 10px);
+    /* 4 columns */
+    box-sizing: border-box;
+    flex-grow: 0;
+    /* Prevent buttons from growing */
+    flex-shrink: 0;
+    /* Prevent buttons from shrinking */
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 8px;
+        /* Slightly increase font size for 1200px */
+    }
+    .lapButtons button {
+        flex-basis: calc(50% - 10px);
+        /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 8px;
+        /* Slightly increase font size for 1200px */
+    }
+    #board-container {
+        width: 95%;
+        /* Increase width for 1200px */
+    }
+}
+
+@media (min-width: 1920px) {
+
+    /* Adjust breakpoint as needed */
+    html {
+        font-size: 45px;
+        /* Increase font size for TVs */
+    }
+
+    #board-container {
+        width: 98%;
+        max-height: none;
+    }
+}
+
+
+
+#fullScreen {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 1000; /* Ensures it's always on top */
+}
+
+#fullScreen:hover {
+    background-color: #218838;
+}

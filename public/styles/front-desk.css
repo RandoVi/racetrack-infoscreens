@@ -1,0 +1,365 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f4f4f4;
+    color: rgb(245, 202, 146);
+}
+
+#currentRaceMode {
+    font-weight: bold;
+    font-size: medium;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+    display: flex;
+    background-color: #FF4500;
+    color: white;
+    padding: 0 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: fixed;
+    border-bottom: 3px solid black;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+}
+
+.timer {
+    font-family: monospace;
+    font-size: 2em;
+    font-weight: bold;
+    color: white;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    white-space: nowrap;
+    margin: 0 auto;
+}
+
+a {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.main {
+    flex: 10;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #075b63;
+    padding-top: 60px;
+    text-align: center;
+    overflow-y: auto;
+    /* Add vertical scroll if content overflows */
+    max-height: calc(100vh - 180px);
+    /* sum of header, controls, and footer heights */
+}
+
+footer {
+    flex: 1;
+    height: 40px;
+    background-color: #FF4500;
+    color: white;
+    padding: 10px 10px; /* 10 top and bottom, 20 left and right*/
+    text-align: center;
+    border-top: 3px solid black;
+}
+
+
+.left-section,
+.center-section,
+.right-section {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    height: fit-content;
+}
+
+.left-section {
+    flex: 1;
+}
+
+.center-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: fit-content;
+}
+
+.right-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    /* Arrange items vertically */
+    height: fit-content;
+}
+
+.left-section table,
+.center-section table,
+.right-section table {
+    width: fit-content;
+    height: fit-content;
+    margin: 0 auto;
+}
+
+.left-section button,
+.center-section button,
+.right-section button,
+#resetCurrentButton, #sessionsResetButton {
+    width: fit-content;
+    height: fit-content;
+    white-space: nowrap;
+    margin: 10px;
+}
+
+.left-section table td,
+.center-section table td,
+.right-section table td {
+    word-wrap: break-word;
+}
+
+.controls {
+    background-color: #075b63;
+    color: #333;
+    text-align: center;
+    height: fit-content;
+    position: relative;
+    z-index: 1000;
+}
+
+.roster-table {
+    font-family: 'Segoe UI';
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    font-size: 1fr;
+}
+
+.block {
+    font-family: Verdana;
+    font-weight: bold;
+    justify-content: center;
+    width: 200px;
+    background-color: #b95c3a;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Smooth scaling on resize */
+    transition: transform 0.4s;
+}
+
+/* Fancy size increase upon hover */
+.block:hover {
+    transform: scale(1.1);
+    background-color: #c0a000;
+    color: black;
+}
+
+/*Tablet screen*/
+@media (max-width: 992px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left-section,
+    .center-section,
+    .right-section {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+/* Mobile screen */
+@media (max-width: 576px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .left-section,
+    .center-section,
+    .right-section {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+#resetCurrentButton {
+    align-content: center;
+    padding: 10px;
+    font-size: clamp(1rem, 1vw, 1rem);
+    /* min, preferred, max --- rem is root element's font size times 1 and clamp forces it between these limits*/
+    margin: 1vh;
+    cursor: pointer;
+    background-color: #dfa559;
+}
+
+#resetCurrentButton:hover {
+    background-color: #5c5c5c91;
+}
+
+#submitButton {
+    align-content: center;
+    font-family: monospace;
+    font-size: clamp(1rem, 3vw, 2rem);
+    min-height: min-content;
+    min-width: min-content;
+    width: auto;
+    background: rgb(88, 179, 88);
+    border-radius: 20px;
+    border-color: black;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#submitButton:hover {
+    background: rgb(88, 169, 88);
+}
+
+#submitButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+#confirmDriverButton {
+    width: 20%;
+    max-width: 100px;
+    padding: 8px;
+    margin-top: 15px;
+    margin-right: 60px;
+    font-size: clamp(12px, 2vw, 16px);
+    background: #a1ffa1;
+    color: rgb(0, 0, 0);
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#confirmDriverButton:hover {
+    background-color: #026902;
+}
+
+#confirmDriverButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#resetDriverButton {
+    width: 20%;
+    max-width: 100px;
+    padding: 8px;
+    font-size: clamp(12px, 2vw, 16px);
+    background: #ff000060;
+    color: rgb(0, 0, 0);
+    border: black;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#resetDriverButton:hover {
+    background-color: rgb(78, 0, 0);
+}
+
+#resetDriverButton:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+#driverSelect {
+    text-align: center;
+}
+
+input[disabled] {
+    background-color: #f0f0f0;
+    color: #888;
+    cursor: not-allowed;
+}
+
+button {
+    position: relative;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 20px;
+    z-index: 100;
+    font-size: 16px;
+    background-color: #ddbc00;
+    color: white;
+    border: 3px solid black;
+    font-weight: bold;
+    font-style: oblique;
+}
+
+button:hover {
+    background-color: #c0a000;
+    color: black;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* Removes space between cells */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+}
+
+th {    /*table header*/
+    background-color: #ddbc00;
+    margin-top:  50px;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 12px 15px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+tr { /*table row*/
+    border-bottom: 1px solid #dddddd;
+}
+
+tr td {
+    /* Target the <td> elements */
+    padding: 12px 5px;
+    text-align: left;
+    box-sizing: border-box;
+    width: 250px;
+}
+
+tr:hover {
+    background-color: #ffbb005d;
+}
